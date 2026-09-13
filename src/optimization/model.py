@@ -25,6 +25,8 @@ URGENCY_WEIGHT = {
 }
 
 BLOCK_USAGE_PENALTY = 5
+UNUSED_CAPACITY_PENALTY = 1
+MULTI_DEPARTMENT_BONUS = 20
 
 
 # =========================================================
@@ -193,6 +195,9 @@ def build_model(data):
     assignment_vars = {}
     interval_vars = {}
     block_used_vars = {}
+    block_used_minutes_vars = {}
+    department_used_vars = {}
+    multi_department_block_vars = {}
 
     # ---------------------------------------------------------
     # 6. Identify blocks with feasible candidates
@@ -218,6 +223,59 @@ def build_model(data):
             f"use_block_{block_index}"
         )
 
+        block = blocks_df.loc[block_index]
+
+        block_start = pd.Timestamp(
+            f"{block['date']} {block['start_time']}"
+        )
+
+        block_end = pd.Timestamp(
+            f"{block['date']} {block['end_time']}"
+        )
+
+        block_duration_min = int(
+            (block_end - block_start).total_seconds() // 60
+        )
+
+        block_used_minutes_vars[block_index] = model.NewIntVar(
+            0,
+            block_duration_min,
+            f"used_minutes_{block_index}",
+        )
+
+    # ---------------------------------------------------------
+    # 7A. Create department coordination variables
+    # ---------------------------------------------------------
+    #
+    # A department is marked as active in a block when at least
+    # one task from that department is assigned to the block.
+    #
+    # This lets the objective explicitly reward useful
+    # multi-department coordination without weakening any
+    # feasibility constraint.
+    #
+    departments = sorted(
+        tasks_df["department"]
+        .dropna()
+        .astype(str)
+        .unique()
+    )
+
+    for block_index in candidate_block_indices:
+        department_used_vars[block_index] = {}
+
+        for department in departments:
+            department_used_vars[
+                block_index
+            ][department] = model.NewBoolVar(
+                f"dept_{department}_block_{block_index}"
+            )
+
+        multi_department_block_vars[
+            block_index
+        ] = model.NewBoolVar(
+            f"multi_department_block_{block_index}"
+        )
     # ---------------------------------------------------------
     # 8. Maintenance intervals grouped by block
     # ---------------------------------------------------------
@@ -380,6 +438,122 @@ def build_model(data):
             assignment_var,
             block_used_vars[block_index],
         )
+
+    # ---------------------------------------------------------
+    # 9A. Link department usage to assignments
+    # ---------------------------------------------------------
+    #
+    # For each block and department:
+    #
+    #   department_used = 1
+    #       iff at least one task from that department
+    #       is assigned to the block.
+    #
+    # Then multi_department_block = 1 iff at least two
+    # departments are active in the same block.
+    #
+
+    for block_index in candidate_block_indices:
+
+        department_used_for_block = []
+
+        for department in departments:
+
+            department_assignments = [
+                assignment_var
+                for (
+                    task_index,
+                    candidate_block_index,
+                ), assignment_var in assignment_vars.items()
+                if (
+                    candidate_block_index == block_index
+                    and str(
+                        tasks_df.loc[
+                            task_index,
+                            "department",
+                        ]
+                    ) == department
+                )
+            ]
+
+            department_used_var = department_used_vars[
+                block_index
+            ][department]
+
+            if department_assignments:
+                model.AddMaxEquality(
+                    department_used_var,
+                    department_assignments,
+                )
+            else:
+                model.Add(
+                    department_used_var == 0
+                )
+
+            department_used_for_block.append(
+                department_used_var
+            )
+
+        multi_department_var = (
+            multi_department_block_vars[block_index]
+        )
+
+        department_count = sum(
+            department_used_for_block
+        )
+
+        # If multi_department_var == 0:
+        #     department_count <= 1
+        #
+        # If multi_department_var == 1:
+        #     department_count >= 2
+        #
+        model.Add(
+            department_count
+            <= 1 + 2 * multi_department_var
+        )
+
+        model.Add(
+            department_count
+            >= 2 * multi_department_var
+        )
+
+    # ---------------------------------------------------------
+    # 9B. Calculate used minutes for each block
+    # ---------------------------------------------------------
+
+    for block_index in block_used_minutes_vars:
+
+        block_assignments = []
+
+        for (
+            task_index,
+            candidate_block_index,
+        ), assignment_var in assignment_vars.items():
+
+            if candidate_block_index != block_index:
+                continue
+
+            task_duration = int(
+                tasks_df.loc[
+                    task_index,
+                    "estimated_duration_min",
+                ]
+            )
+
+            block_assignments.append(
+                task_duration * assignment_var
+            )
+
+        if block_assignments:
+            model.Add(
+                block_used_minutes_vars[block_index]
+                == sum(block_assignments)
+            )
+        else:
+            model.Add(
+                block_used_minutes_vars[block_index] == 0
+            )
 
     # ---------------------------------------------------------
     # 10. Each task can be scheduled at most once
@@ -614,15 +788,63 @@ def build_model(data):
         )
 
     # ---------------------------------------------------------
-    # 14. Block usage penalty
+    # 14. Block usage and utilization
     # ---------------------------------------------------------
 
     # Encourage consolidation of maintenance work.
 
-    for block_used_var in block_used_vars.values():
+    for block_index, block_used_var in block_used_vars.items():
 
+        # Penalty for opening a maintenance block.
         objective_terms.append(
             -BLOCK_USAGE_PENALTY * block_used_var
+        )
+
+        block = blocks_df.loc[block_index]
+
+        block_start = pd.Timestamp(
+            f"{block['date']} {block['start_time']}"
+        )
+
+        block_end = pd.Timestamp(
+            f"{block['date']} {block['end_time']}"
+        )
+
+        block_duration_min = int(
+            (block_end - block_start).total_seconds() // 60
+        )
+
+        unused_capacity = model.NewIntVar(
+            0,
+            block_duration_min,
+            f"unused_capacity_{block_index}",
+        )
+
+        model.Add(
+            unused_capacity
+            == (
+                block_duration_min * block_used_var
+                - block_used_minutes_vars[block_index]
+            )
+        )
+
+        # Penalize unused capacity inside an opened block.
+        objective_terms.append(
+            -UNUSED_CAPACITY_PENALTY * unused_capacity
+        )
+
+        # -----------------------------------------------------
+        # Reward multi-department coordination
+        # -----------------------------------------------------
+        #
+        # This is a soft objective preference, not a hard
+        # requirement. A block earns the bonus only when tasks
+        # from at least two departments are actually scheduled
+        # in that same block.
+        #
+        objective_terms.append(
+            MULTI_DEPARTMENT_BONUS
+            * multi_department_block_vars[block_index]
         )
 
     # ---------------------------------------------------------
@@ -642,4 +864,5 @@ def build_model(data):
         assignment_vars,
         interval_vars,
         block_used_vars,
+        block_used_minutes_vars,
     )
