@@ -1,0 +1,18 @@
+section_id,from_station,to_station,distance_km,normal_running_time_min,minimum_block_duration_min,notes
+SEC001,ST001,ST002,17.0,25,45,Fictional open-line segment.
+SEC002,ST002,ST003,8.0,12,45,Fictional segment with a passing loop nearby.
+SEC003,ST003,ST004,17.0,31,60,Fictional segment with a turnout approach.
+SEC004,ST004,ST005,8.0,13,60,Fictional segment with an equipment cabin nearby.
+SEC005,ST005,ST006,13.0,19,75,Fictional open-line segment.
+SEC006,ST006,ST007,11.0,14,75,Fictional segment with a passing loop nearby.
+SEC007,ST007,ST008,12.0,21,45,Fictional segment with a turnout approach.
+SEC008,ST008,ST009,12.0,18,60,Fictional segment with an equipment cabin nearby.
+SEC009,ST009,ST010,12.0,20,60,Fictional open-line segment.
+SEC010,ST010,ST011,13.0,17,60,Fictional segment with a passing loop nearby.
+SEC011,ST011,ST012,11.0,14,45,Fictional segment with a turnout approach.
+SEC012,ST012,ST013,15.0,24,75,Fictional segment with an equipment cabin nearby.
+SEC013,ST013,ST014,12.0,17,45,Fictional open-line segment.
+SEC014,ST014,ST015,17.0,30,45,Fictional segment with a passing loop nearby.
+SEC015,ST015,ST016,10.0,14,45,Fictional segment with a turnout approach.
+SEC016,ST016,ST017,19.0,24,75,Fictional segment with an equipment cabin nearby.
+SEC017,ST017,ST018,18.0,29,60,Fictional open-line segment.

@@ -1,0 +1,19 @@
+station_id,station_name,sequence,km_from_origin
+ST001,Aster Terminal,1,0.0
+ST002,Birchfield,2,17.0
+ST003,Copper Grove,3,25.0
+ST004,Dawn Ridge,4,42.0
+ST005,Elm Crossing,5,50.0
+ST006,Fern Valley,6,63.0
+ST007,Garnet Halt,7,74.0
+ST008,Harbor View,8,86.0
+ST009,Indigo Park,9,98.0
+ST010,Juniper Junction,10,110.0
+ST011,Kestrel Point,11,123.0
+ST012,Lumen Gate,12,134.0
+ST013,Meadowbridge,13,149.0
+ST014,Northstar,14,161.0
+ST015,Orchid Plain,15,178.0
+ST016,Pinecrest,16,188.0
+ST017,Quartz Bay,17,207.0
+ST018,Rivermark,18,225.0

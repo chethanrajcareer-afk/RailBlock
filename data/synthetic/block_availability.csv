@@ -1,0 +1,358 @@
+block_window_id,section_id,date,start_time,end_time,availability_status,reason
+BW00001,SEC001,2026-01-05,01:00:00,02:30:00,available,Fictional night maintenance allowance.
+BW00002,SEC001,2026-01-05,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00003,SEC001,2026-01-05,21:15:00,22:45:00,available,Fictional late-night maintenance allowance.
+BW00004,SEC002,2026-01-05,01:05:00,02:50:00,available,Fictional night maintenance allowance.
+BW00005,SEC002,2026-01-05,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00006,SEC002,2026-01-05,21:19:00,22:49:00,available,Fictional late-night maintenance allowance.
+BW00007,SEC003,2026-01-05,01:10:00,03:10:00,available,Fictional night maintenance allowance.
+BW00008,SEC003,2026-01-05,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00009,SEC003,2026-01-05,21:23:00,22:53:00,available,Fictional late-night maintenance allowance.
+BW00010,SEC004,2026-01-05,01:15:00,02:45:00,available,Fictional night maintenance allowance.
+BW00011,SEC004,2026-01-05,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00012,SEC004,2026-01-05,21:27:00,22:57:00,available,Fictional late-night maintenance allowance.
+BW00013,SEC005,2026-01-05,01:20:00,03:05:00,available,Fictional night maintenance allowance.
+BW00014,SEC005,2026-01-05,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00015,SEC005,2026-01-05,21:31:00,23:01:00,available,Fictional late-night maintenance allowance.
+BW00016,SEC006,2026-01-05,01:25:00,03:10:00,available,Fictional night maintenance allowance.
+BW00017,SEC006,2026-01-05,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00018,SEC006,2026-01-05,21:35:00,23:05:00,available,Fictional late-night maintenance allowance.
+BW00019,SEC007,2026-01-05,01:00:00,02:45:00,available,Fictional night maintenance allowance.
+BW00020,SEC007,2026-01-05,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00021,SEC007,2026-01-05,21:39:00,23:09:00,available,Fictional late-night maintenance allowance.
+BW00022,SEC008,2026-01-05,01:05:00,03:05:00,available,Fictional night maintenance allowance.
+BW00023,SEC008,2026-01-05,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00024,SEC008,2026-01-05,21:18:00,22:48:00,available,Fictional late-night maintenance allowance.
+BW00025,SEC009,2026-01-05,01:10:00,03:10:00,available,Fictional night maintenance allowance.
+BW00026,SEC009,2026-01-05,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00027,SEC009,2026-01-05,21:22:00,22:52:00,available,Fictional late-night maintenance allowance.
+BW00028,SEC010,2026-01-05,01:15:00,03:00:00,available,Fictional night maintenance allowance.
+BW00029,SEC010,2026-01-05,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00030,SEC010,2026-01-05,21:26:00,22:56:00,available,Fictional late-night maintenance allowance.
+BW00031,SEC011,2026-01-05,01:20:00,03:05:00,available,Fictional night maintenance allowance.
+BW00032,SEC011,2026-01-05,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00033,SEC011,2026-01-05,21:30:00,23:00:00,available,Fictional late-night maintenance allowance.
+BW00034,SEC012,2026-01-05,01:25:00,03:10:00,available,Fictional night maintenance allowance.
+BW00035,SEC012,2026-01-05,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00036,SEC012,2026-01-05,21:34:00,23:04:00,available,Fictional late-night maintenance allowance.
+BW00037,SEC013,2026-01-05,01:00:00,02:30:00,available,Fictional night maintenance allowance.
+BW00038,SEC013,2026-01-05,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00039,SEC013,2026-01-05,21:38:00,23:08:00,available,Fictional late-night maintenance allowance.
+BW00040,SEC014,2026-01-05,01:05:00,03:05:00,available,Fictional night maintenance allowance.
+BW00041,SEC014,2026-01-05,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00042,SEC014,2026-01-05,21:17:00,22:47:00,available,Fictional late-night maintenance allowance.
+BW00043,SEC015,2026-01-05,01:10:00,02:40:00,available,Fictional night maintenance allowance.
+BW00044,SEC015,2026-01-05,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00045,SEC015,2026-01-05,21:21:00,22:51:00,available,Fictional late-night maintenance allowance.
+BW00046,SEC016,2026-01-05,01:15:00,03:15:00,available,Fictional night maintenance allowance.
+BW00047,SEC016,2026-01-05,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00048,SEC016,2026-01-05,21:25:00,22:55:00,available,Fictional late-night maintenance allowance.
+BW00049,SEC017,2026-01-05,01:20:00,02:50:00,available,Fictional night maintenance allowance.
+BW00050,SEC017,2026-01-05,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00051,SEC017,2026-01-05,21:29:00,22:59:00,available,Fictional late-night maintenance allowance.
+BW00052,SEC001,2026-01-06,01:03:00,02:33:00,available,Fictional night maintenance allowance.
+BW00053,SEC001,2026-01-06,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00054,SEC001,2026-01-06,21:17:00,22:47:00,available,Fictional late-night maintenance allowance.
+BW00055,SEC002,2026-01-06,01:08:00,02:53:00,available,Fictional night maintenance allowance.
+BW00056,SEC002,2026-01-06,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00057,SEC002,2026-01-06,21:21:00,22:51:00,available,Fictional late-night maintenance allowance.
+BW00058,SEC003,2026-01-06,01:13:00,03:13:00,available,Fictional night maintenance allowance.
+BW00059,SEC003,2026-01-06,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00060,SEC003,2026-01-06,21:25:00,22:55:00,available,Fictional late-night maintenance allowance.
+BW00061,SEC004,2026-01-06,01:18:00,02:48:00,available,Fictional night maintenance allowance.
+BW00062,SEC004,2026-01-06,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00063,SEC004,2026-01-06,21:29:00,22:59:00,available,Fictional late-night maintenance allowance.
+BW00064,SEC005,2026-01-06,01:23:00,03:08:00,available,Fictional night maintenance allowance.
+BW00065,SEC005,2026-01-06,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00066,SEC005,2026-01-06,21:33:00,23:03:00,available,Fictional late-night maintenance allowance.
+BW00067,SEC006,2026-01-06,01:28:00,03:28:00,available,Fictional night maintenance allowance.
+BW00068,SEC006,2026-01-06,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00069,SEC006,2026-01-06,21:37:00,23:07:00,available,Fictional late-night maintenance allowance.
+BW00070,SEC007,2026-01-06,01:03:00,02:48:00,available,Fictional night maintenance allowance.
+BW00071,SEC007,2026-01-06,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00072,SEC007,2026-01-06,21:16:00,22:46:00,available,Fictional late-night maintenance allowance.
+BW00073,SEC008,2026-01-06,01:08:00,03:08:00,available,Fictional night maintenance allowance.
+BW00074,SEC008,2026-01-06,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00075,SEC008,2026-01-06,21:20:00,22:50:00,available,Fictional late-night maintenance allowance.
+BW00076,SEC009,2026-01-06,01:13:00,03:13:00,available,Fictional night maintenance allowance.
+BW00077,SEC009,2026-01-06,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00078,SEC009,2026-01-06,21:24:00,22:54:00,available,Fictional late-night maintenance allowance.
+BW00079,SEC010,2026-01-06,01:18:00,03:18:00,available,Fictional night maintenance allowance.
+BW00080,SEC010,2026-01-06,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00081,SEC010,2026-01-06,21:28:00,22:58:00,available,Fictional late-night maintenance allowance.
+BW00082,SEC011,2026-01-06,01:23:00,03:08:00,available,Fictional night maintenance allowance.
+BW00083,SEC011,2026-01-06,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00084,SEC011,2026-01-06,21:32:00,23:02:00,available,Fictional late-night maintenance allowance.
+BW00085,SEC012,2026-01-06,01:28:00,03:13:00,available,Fictional night maintenance allowance.
+BW00086,SEC012,2026-01-06,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00087,SEC012,2026-01-06,21:36:00,23:06:00,available,Fictional late-night maintenance allowance.
+BW00088,SEC013,2026-01-06,01:03:00,02:33:00,available,Fictional night maintenance allowance.
+BW00089,SEC013,2026-01-06,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00090,SEC013,2026-01-06,21:15:00,22:45:00,available,Fictional late-night maintenance allowance.
+BW00091,SEC014,2026-01-06,01:08:00,02:53:00,available,Fictional night maintenance allowance.
+BW00092,SEC014,2026-01-06,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00093,SEC014,2026-01-06,21:19:00,22:49:00,available,Fictional late-night maintenance allowance.
+BW00094,SEC015,2026-01-06,01:13:00,02:43:00,available,Fictional night maintenance allowance.
+BW00095,SEC015,2026-01-06,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00096,SEC015,2026-01-06,21:23:00,22:53:00,available,Fictional late-night maintenance allowance.
+BW00097,SEC016,2026-01-06,01:18:00,03:03:00,available,Fictional night maintenance allowance.
+BW00098,SEC016,2026-01-06,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00099,SEC016,2026-01-06,21:27:00,22:57:00,available,Fictional late-night maintenance allowance.
+BW00100,SEC017,2026-01-06,01:23:00,03:23:00,available,Fictional night maintenance allowance.
+BW00101,SEC017,2026-01-06,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00102,SEC017,2026-01-06,21:31:00,23:01:00,available,Fictional late-night maintenance allowance.
+BW00103,SEC001,2026-01-07,01:06:00,02:36:00,available,Fictional night maintenance allowance.
+BW00104,SEC001,2026-01-07,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00105,SEC001,2026-01-07,21:19:00,22:49:00,available,Fictional late-night maintenance allowance.
+BW00106,SEC002,2026-01-07,01:11:00,03:11:00,available,Fictional night maintenance allowance.
+BW00107,SEC002,2026-01-07,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00108,SEC002,2026-01-07,21:23:00,22:53:00,available,Fictional late-night maintenance allowance.
+BW00109,SEC003,2026-01-07,01:16:00,03:01:00,available,Fictional night maintenance allowance.
+BW00110,SEC003,2026-01-07,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00111,SEC003,2026-01-07,21:27:00,22:57:00,available,Fictional late-night maintenance allowance.
+BW00112,SEC004,2026-01-07,01:21:00,02:51:00,available,Fictional night maintenance allowance.
+BW00113,SEC004,2026-01-07,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00114,SEC004,2026-01-07,21:31:00,23:01:00,available,Fictional late-night maintenance allowance.
+BW00115,SEC005,2026-01-07,01:26:00,03:11:00,available,Fictional night maintenance allowance.
+BW00116,SEC005,2026-01-07,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00117,SEC005,2026-01-07,21:35:00,23:05:00,available,Fictional late-night maintenance allowance.
+BW00118,SEC006,2026-01-07,01:01:00,03:01:00,available,Fictional night maintenance allowance.
+BW00119,SEC006,2026-01-07,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00120,SEC006,2026-01-07,21:39:00,23:09:00,available,Fictional late-night maintenance allowance.
+BW00121,SEC007,2026-01-07,01:06:00,03:06:00,available,Fictional night maintenance allowance.
+BW00122,SEC007,2026-01-07,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00123,SEC007,2026-01-07,21:18:00,22:48:00,available,Fictional late-night maintenance allowance.
+BW00124,SEC008,2026-01-07,01:11:00,03:11:00,available,Fictional night maintenance allowance.
+BW00125,SEC008,2026-01-07,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00126,SEC008,2026-01-07,21:22:00,22:52:00,available,Fictional late-night maintenance allowance.
+BW00127,SEC009,2026-01-07,01:16:00,02:46:00,available,Fictional night maintenance allowance.
+BW00128,SEC009,2026-01-07,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00129,SEC009,2026-01-07,21:26:00,22:56:00,available,Fictional late-night maintenance allowance.
+BW00130,SEC010,2026-01-07,01:21:00,03:06:00,available,Fictional night maintenance allowance.
+BW00131,SEC010,2026-01-07,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00132,SEC010,2026-01-07,21:30:00,23:00:00,available,Fictional late-night maintenance allowance.
+BW00133,SEC011,2026-01-07,01:26:00,03:26:00,available,Fictional night maintenance allowance.
+BW00134,SEC011,2026-01-07,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00135,SEC011,2026-01-07,21:34:00,23:04:00,available,Fictional late-night maintenance allowance.
+BW00136,SEC012,2026-01-07,01:01:00,02:46:00,available,Fictional night maintenance allowance.
+BW00137,SEC012,2026-01-07,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00138,SEC012,2026-01-07,21:38:00,23:08:00,available,Fictional late-night maintenance allowance.
+BW00139,SEC013,2026-01-07,01:06:00,03:06:00,available,Fictional night maintenance allowance.
+BW00140,SEC013,2026-01-07,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00141,SEC013,2026-01-07,21:17:00,22:47:00,available,Fictional late-night maintenance allowance.
+BW00142,SEC014,2026-01-07,01:11:00,02:41:00,available,Fictional night maintenance allowance.
+BW00143,SEC014,2026-01-07,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00144,SEC014,2026-01-07,21:21:00,22:51:00,available,Fictional late-night maintenance allowance.
+BW00145,SEC015,2026-01-07,01:16:00,03:01:00,available,Fictional night maintenance allowance.
+BW00146,SEC015,2026-01-07,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00147,SEC015,2026-01-07,21:25:00,22:55:00,available,Fictional late-night maintenance allowance.
+BW00148,SEC016,2026-01-07,01:21:00,03:21:00,available,Fictional night maintenance allowance.
+BW00149,SEC016,2026-01-07,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00150,SEC016,2026-01-07,21:29:00,22:59:00,available,Fictional late-night maintenance allowance.
+BW00151,SEC017,2026-01-07,01:26:00,02:56:00,available,Fictional night maintenance allowance.
+BW00152,SEC017,2026-01-07,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00153,SEC017,2026-01-07,21:33:00,23:03:00,available,Fictional late-night maintenance allowance.
+BW00154,SEC001,2026-01-08,01:09:00,02:39:00,available,Fictional night maintenance allowance.
+BW00155,SEC001,2026-01-08,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00156,SEC001,2026-01-08,21:21:00,22:51:00,available,Fictional late-night maintenance allowance.
+BW00157,SEC002,2026-01-08,01:14:00,02:59:00,available,Fictional night maintenance allowance.
+BW00158,SEC002,2026-01-08,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00159,SEC002,2026-01-08,21:25:00,22:55:00,available,Fictional late-night maintenance allowance.
+BW00160,SEC003,2026-01-08,01:19:00,03:19:00,available,Fictional night maintenance allowance.
+BW00161,SEC003,2026-01-08,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00162,SEC003,2026-01-08,21:29:00,22:59:00,available,Fictional late-night maintenance allowance.
+BW00163,SEC004,2026-01-08,01:24:00,03:09:00,available,Fictional night maintenance allowance.
+BW00164,SEC004,2026-01-08,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00165,SEC004,2026-01-08,21:33:00,23:03:00,available,Fictional late-night maintenance allowance.
+BW00166,SEC005,2026-01-08,01:29:00,03:14:00,available,Fictional night maintenance allowance.
+BW00167,SEC005,2026-01-08,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00168,SEC005,2026-01-08,21:37:00,23:07:00,available,Fictional late-night maintenance allowance.
+BW00169,SEC006,2026-01-08,01:04:00,02:49:00,available,Fictional night maintenance allowance.
+BW00170,SEC006,2026-01-08,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00171,SEC006,2026-01-08,21:16:00,22:46:00,available,Fictional late-night maintenance allowance.
+BW00172,SEC007,2026-01-08,01:09:00,02:39:00,available,Fictional night maintenance allowance.
+BW00173,SEC007,2026-01-08,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00174,SEC007,2026-01-08,21:20:00,22:50:00,available,Fictional late-night maintenance allowance.
+BW00175,SEC008,2026-01-08,01:14:00,02:59:00,available,Fictional night maintenance allowance.
+BW00176,SEC008,2026-01-08,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00177,SEC008,2026-01-08,21:24:00,22:54:00,available,Fictional late-night maintenance allowance.
+BW00178,SEC009,2026-01-08,01:19:00,03:19:00,available,Fictional night maintenance allowance.
+BW00179,SEC009,2026-01-08,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00180,SEC009,2026-01-08,21:28:00,22:58:00,available,Fictional late-night maintenance allowance.
+BW00181,SEC010,2026-01-08,01:24:00,03:09:00,available,Fictional night maintenance allowance.
+BW00182,SEC010,2026-01-08,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00183,SEC010,2026-01-08,21:32:00,23:02:00,available,Fictional late-night maintenance allowance.
+BW00184,SEC011,2026-01-08,01:29:00,02:59:00,available,Fictional night maintenance allowance.
+BW00185,SEC011,2026-01-08,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00186,SEC011,2026-01-08,21:36:00,23:06:00,available,Fictional late-night maintenance allowance.
+BW00187,SEC012,2026-01-08,01:04:00,03:04:00,available,Fictional night maintenance allowance.
+BW00188,SEC012,2026-01-08,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00189,SEC012,2026-01-08,21:15:00,22:45:00,available,Fictional late-night maintenance allowance.
+BW00190,SEC013,2026-01-08,01:09:00,02:39:00,available,Fictional night maintenance allowance.
+BW00191,SEC013,2026-01-08,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00192,SEC013,2026-01-08,21:19:00,22:49:00,available,Fictional late-night maintenance allowance.
+BW00193,SEC014,2026-01-08,01:14:00,03:14:00,available,Fictional night maintenance allowance.
+BW00194,SEC014,2026-01-08,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00195,SEC014,2026-01-08,21:23:00,22:53:00,available,Fictional late-night maintenance allowance.
+BW00196,SEC015,2026-01-08,01:19:00,02:49:00,available,Fictional night maintenance allowance.
+BW00197,SEC015,2026-01-08,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00198,SEC015,2026-01-08,21:27:00,22:57:00,available,Fictional late-night maintenance allowance.
+BW00199,SEC016,2026-01-08,01:24:00,03:24:00,available,Fictional night maintenance allowance.
+BW00200,SEC016,2026-01-08,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00201,SEC016,2026-01-08,21:31:00,23:01:00,available,Fictional late-night maintenance allowance.
+BW00202,SEC017,2026-01-08,01:29:00,03:14:00,available,Fictional night maintenance allowance.
+BW00203,SEC017,2026-01-08,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00204,SEC017,2026-01-08,21:35:00,23:05:00,available,Fictional late-night maintenance allowance.
+BW00205,SEC001,2026-01-09,01:12:00,03:12:00,available,Fictional night maintenance allowance.
+BW00206,SEC001,2026-01-09,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00207,SEC001,2026-01-09,21:23:00,22:53:00,available,Fictional late-night maintenance allowance.
+BW00208,SEC002,2026-01-09,01:17:00,02:47:00,available,Fictional night maintenance allowance.
+BW00209,SEC002,2026-01-09,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00210,SEC002,2026-01-09,21:27:00,22:57:00,available,Fictional late-night maintenance allowance.
+BW00211,SEC003,2026-01-09,01:22:00,02:52:00,available,Fictional night maintenance allowance.
+BW00212,SEC003,2026-01-09,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00213,SEC003,2026-01-09,21:31:00,23:01:00,available,Fictional late-night maintenance allowance.
+BW00214,SEC004,2026-01-09,01:27:00,02:57:00,available,Fictional night maintenance allowance.
+BW00215,SEC004,2026-01-09,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00216,SEC004,2026-01-09,21:35:00,23:05:00,available,Fictional late-night maintenance allowance.
+BW00217,SEC005,2026-01-09,01:02:00,02:47:00,available,Fictional night maintenance allowance.
+BW00218,SEC005,2026-01-09,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00219,SEC005,2026-01-09,21:39:00,23:09:00,available,Fictional late-night maintenance allowance.
+BW00220,SEC006,2026-01-09,01:07:00,03:07:00,available,Fictional night maintenance allowance.
+BW00221,SEC006,2026-01-09,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00222,SEC006,2026-01-09,21:18:00,22:48:00,available,Fictional late-night maintenance allowance.
+BW00223,SEC007,2026-01-09,01:12:00,02:57:00,available,Fictional night maintenance allowance.
+BW00224,SEC007,2026-01-09,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00225,SEC007,2026-01-09,21:22:00,22:52:00,available,Fictional late-night maintenance allowance.
+BW00226,SEC008,2026-01-09,01:17:00,03:02:00,available,Fictional night maintenance allowance.
+BW00227,SEC008,2026-01-09,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00228,SEC008,2026-01-09,21:26:00,22:56:00,available,Fictional late-night maintenance allowance.
+BW00229,SEC009,2026-01-09,01:22:00,02:52:00,available,Fictional night maintenance allowance.
+BW00230,SEC009,2026-01-09,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00231,SEC009,2026-01-09,21:30:00,23:00:00,available,Fictional late-night maintenance allowance.
+BW00232,SEC010,2026-01-09,01:27:00,02:57:00,available,Fictional night maintenance allowance.
+BW00233,SEC010,2026-01-09,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00234,SEC010,2026-01-09,21:34:00,23:04:00,available,Fictional late-night maintenance allowance.
+BW00235,SEC011,2026-01-09,01:02:00,02:47:00,available,Fictional night maintenance allowance.
+BW00236,SEC011,2026-01-09,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00237,SEC011,2026-01-09,21:38:00,23:08:00,available,Fictional late-night maintenance allowance.
+BW00238,SEC012,2026-01-09,01:07:00,02:52:00,available,Fictional night maintenance allowance.
+BW00239,SEC012,2026-01-09,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00240,SEC012,2026-01-09,21:17:00,22:47:00,available,Fictional late-night maintenance allowance.
+BW00241,SEC013,2026-01-09,01:12:00,03:12:00,available,Fictional night maintenance allowance.
+BW00242,SEC013,2026-01-09,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00243,SEC013,2026-01-09,21:21:00,22:51:00,available,Fictional late-night maintenance allowance.
+BW00244,SEC014,2026-01-09,01:17:00,03:17:00,available,Fictional night maintenance allowance.
+BW00245,SEC014,2026-01-09,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00246,SEC014,2026-01-09,21:25:00,22:55:00,available,Fictional late-night maintenance allowance.
+BW00247,SEC015,2026-01-09,01:22:00,03:07:00,available,Fictional night maintenance allowance.
+BW00248,SEC015,2026-01-09,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00249,SEC015,2026-01-09,21:29:00,22:59:00,available,Fictional late-night maintenance allowance.
+BW00250,SEC016,2026-01-09,01:27:00,03:27:00,available,Fictional night maintenance allowance.
+BW00251,SEC016,2026-01-09,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00252,SEC016,2026-01-09,21:33:00,23:03:00,available,Fictional late-night maintenance allowance.
+BW00253,SEC017,2026-01-09,01:02:00,02:47:00,available,Fictional night maintenance allowance.
+BW00254,SEC017,2026-01-09,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00255,SEC017,2026-01-09,21:37:00,23:07:00,available,Fictional late-night maintenance allowance.
+BW00256,SEC001,2026-01-10,01:15:00,03:15:00,available,Fictional night maintenance allowance.
+BW00257,SEC001,2026-01-10,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00258,SEC001,2026-01-10,21:25:00,22:55:00,available,Fictional late-night maintenance allowance.
+BW00259,SEC002,2026-01-10,01:20:00,03:20:00,available,Fictional night maintenance allowance.
+BW00260,SEC002,2026-01-10,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00261,SEC002,2026-01-10,21:29:00,22:59:00,available,Fictional late-night maintenance allowance.
+BW00262,SEC003,2026-01-10,01:25:00,03:10:00,available,Fictional night maintenance allowance.
+BW00263,SEC003,2026-01-10,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00264,SEC003,2026-01-10,21:33:00,23:03:00,available,Fictional late-night maintenance allowance.
+BW00265,SEC004,2026-01-10,01:00:00,03:00:00,available,Fictional night maintenance allowance.
+BW00266,SEC004,2026-01-10,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00267,SEC004,2026-01-10,21:37:00,23:07:00,available,Fictional late-night maintenance allowance.
+BW00268,SEC005,2026-01-10,01:05:00,03:05:00,available,Fictional night maintenance allowance.
+BW00269,SEC005,2026-01-10,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00270,SEC005,2026-01-10,21:16:00,22:46:00,available,Fictional late-night maintenance allowance.
+BW00271,SEC006,2026-01-10,01:10:00,02:55:00,available,Fictional night maintenance allowance.
+BW00272,SEC006,2026-01-10,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00273,SEC006,2026-01-10,21:20:00,22:50:00,available,Fictional late-night maintenance allowance.
+BW00274,SEC007,2026-01-10,01:15:00,03:15:00,available,Fictional night maintenance allowance.
+BW00275,SEC007,2026-01-10,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00276,SEC007,2026-01-10,21:24:00,22:54:00,available,Fictional late-night maintenance allowance.
+BW00277,SEC008,2026-01-10,01:20:00,02:50:00,available,Fictional night maintenance allowance.
+BW00278,SEC008,2026-01-10,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00279,SEC008,2026-01-10,21:28:00,22:58:00,available,Fictional late-night maintenance allowance.
+BW00280,SEC009,2026-01-10,01:25:00,02:55:00,available,Fictional night maintenance allowance.
+BW00281,SEC009,2026-01-10,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00282,SEC009,2026-01-10,21:32:00,23:02:00,available,Fictional late-night maintenance allowance.
+BW00283,SEC010,2026-01-10,01:00:00,02:30:00,available,Fictional night maintenance allowance.
+BW00284,SEC010,2026-01-10,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00285,SEC010,2026-01-10,21:36:00,23:06:00,available,Fictional late-night maintenance allowance.
+BW00286,SEC011,2026-01-10,01:05:00,02:50:00,available,Fictional night maintenance allowance.
+BW00287,SEC011,2026-01-10,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00288,SEC011,2026-01-10,21:15:00,22:45:00,available,Fictional late-night maintenance allowance.
+BW00289,SEC012,2026-01-10,01:10:00,03:10:00,available,Fictional night maintenance allowance.
+BW00290,SEC012,2026-01-10,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00291,SEC012,2026-01-10,21:19:00,22:49:00,available,Fictional late-night maintenance allowance.
+BW00292,SEC013,2026-01-10,01:15:00,03:15:00,available,Fictional night maintenance allowance.
+BW00293,SEC013,2026-01-10,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00294,SEC013,2026-01-10,21:23:00,22:53:00,available,Fictional late-night maintenance allowance.
+BW00295,SEC014,2026-01-10,01:20:00,03:05:00,available,Fictional night maintenance allowance.
+BW00296,SEC014,2026-01-10,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00297,SEC014,2026-01-10,21:27:00,22:57:00,available,Fictional late-night maintenance allowance.
+BW00298,SEC015,2026-01-10,01:25:00,03:25:00,available,Fictional night maintenance allowance.
+BW00299,SEC015,2026-01-10,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00300,SEC015,2026-01-10,21:31:00,23:01:00,available,Fictional late-night maintenance allowance.
+BW00301,SEC016,2026-01-10,01:00:00,02:45:00,available,Fictional night maintenance allowance.
+BW00302,SEC016,2026-01-10,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00303,SEC016,2026-01-10,21:35:00,23:05:00,available,Fictional late-night maintenance allowance.
+BW00304,SEC017,2026-01-10,01:05:00,03:05:00,available,Fictional night maintenance allowance.
+BW00305,SEC017,2026-01-10,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00306,SEC017,2026-01-10,21:39:00,23:09:00,available,Fictional late-night maintenance allowance.
+BW00307,SEC001,2026-01-11,01:18:00,02:48:00,available,Fictional night maintenance allowance.
+BW00308,SEC001,2026-01-11,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00309,SEC001,2026-01-11,21:27:00,22:57:00,available,Fictional late-night maintenance allowance.
+BW00310,SEC002,2026-01-11,01:23:00,02:53:00,available,Fictional night maintenance allowance.
+BW00311,SEC002,2026-01-11,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00312,SEC002,2026-01-11,21:31:00,23:01:00,available,Fictional late-night maintenance allowance.
+BW00313,SEC003,2026-01-11,01:28:00,02:58:00,available,Fictional night maintenance allowance.
+BW00314,SEC003,2026-01-11,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00315,SEC003,2026-01-11,21:35:00,23:05:00,available,Fictional late-night maintenance allowance.
+BW00316,SEC004,2026-01-11,01:03:00,03:03:00,available,Fictional night maintenance allowance.
+BW00317,SEC004,2026-01-11,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00318,SEC004,2026-01-11,21:39:00,23:09:00,available,Fictional late-night maintenance allowance.
+BW00319,SEC005,2026-01-11,01:08:00,03:08:00,available,Fictional night maintenance allowance.
+BW00320,SEC005,2026-01-11,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00321,SEC005,2026-01-11,21:18:00,22:48:00,available,Fictional late-night maintenance allowance.
+BW00322,SEC006,2026-01-11,01:13:00,02:58:00,available,Fictional night maintenance allowance.
+BW00323,SEC006,2026-01-11,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00324,SEC006,2026-01-11,21:22:00,22:52:00,available,Fictional late-night maintenance allowance.
+BW00325,SEC007,2026-01-11,01:18:00,03:03:00,available,Fictional night maintenance allowance.
+BW00326,SEC007,2026-01-11,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00327,SEC007,2026-01-11,21:26:00,22:56:00,available,Fictional late-night maintenance allowance.
+BW00328,SEC008,2026-01-11,01:23:00,02:53:00,available,Fictional night maintenance allowance.
+BW00329,SEC008,2026-01-11,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00330,SEC008,2026-01-11,21:30:00,23:00:00,available,Fictional late-night maintenance allowance.
+BW00331,SEC009,2026-01-11,01:28:00,03:28:00,available,Fictional night maintenance allowance.
+BW00332,SEC009,2026-01-11,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00333,SEC009,2026-01-11,21:34:00,23:04:00,available,Fictional late-night maintenance allowance.
+BW00334,SEC010,2026-01-11,01:03:00,02:33:00,available,Fictional night maintenance allowance.
+BW00335,SEC010,2026-01-11,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00336,SEC010,2026-01-11,21:38:00,23:08:00,available,Fictional late-night maintenance allowance.
+BW00337,SEC011,2026-01-11,01:08:00,02:38:00,available,Fictional night maintenance allowance.
+BW00338,SEC011,2026-01-11,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00339,SEC011,2026-01-11,21:17:00,22:47:00,available,Fictional late-night maintenance allowance.
+BW00340,SEC012,2026-01-11,01:13:00,02:58:00,available,Fictional night maintenance allowance.
+BW00341,SEC012,2026-01-11,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00342,SEC012,2026-01-11,21:21:00,22:51:00,available,Fictional late-night maintenance allowance.
+BW00343,SEC013,2026-01-11,01:18:00,02:48:00,available,Fictional night maintenance allowance.
+BW00344,SEC013,2026-01-11,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00345,SEC013,2026-01-11,21:25:00,22:55:00,available,Fictional late-night maintenance allowance.
+BW00346,SEC014,2026-01-11,01:23:00,02:53:00,available,Fictional night maintenance allowance.
+BW00347,SEC014,2026-01-11,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00348,SEC014,2026-01-11,21:29:00,22:59:00,available,Fictional late-night maintenance allowance.
+BW00349,SEC015,2026-01-11,01:28:00,02:58:00,available,Fictional night maintenance allowance.
+BW00350,SEC015,2026-01-11,10:20:00,12:20:00,unavailable,Fictional passenger peak protection period.
+BW00351,SEC015,2026-01-11,21:33:00,23:03:00,available,Fictional late-night maintenance allowance.
+BW00352,SEC016,2026-01-11,01:03:00,02:48:00,available,Fictional night maintenance allowance.
+BW00353,SEC016,2026-01-11,10:00:00,12:00:00,unavailable,Fictional passenger peak protection period.
+BW00354,SEC016,2026-01-11,21:37:00,23:07:00,available,Fictional late-night maintenance allowance.
+BW00355,SEC017,2026-01-11,01:08:00,02:38:00,available,Fictional night maintenance allowance.
+BW00356,SEC017,2026-01-11,10:10:00,12:10:00,unavailable,Fictional passenger peak protection period.
+BW00357,SEC017,2026-01-11,21:16:00,22:46:00,available,Fictional late-night maintenance allowance.

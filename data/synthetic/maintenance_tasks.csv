@@ -1,0 +1,109 @@
+task_id,department,asset_type,section_id,asset_id,task_type,criticality,urgency,estimated_duration_min,earliest_start,deadline,required_resources,status
+MT0001,Engineering,rail,SEC015,ENG-SEC015-001,rail repair,medium,low,45,2026-01-11T12:00:00,2026-01-17T18:00:00,track_team|lifting_equipment,requested
+MT0002,S&T,cable,SEC012,SNT-SEC012-002,telecom equipment maintenance,high,low,75,2026-01-05T07:30:00,2026-01-07T11:30:00,signal_team|cable_team,requested
+MT0003,Traction,substation_equipment,SEC009,TRC-SEC009-003,electrical equipment inspection,low,medium,75,2026-01-06T16:00:00,2026-01-15T17:00:00,traction_team|OHE_vehicle,deferred
+MT0004,Engineering,turnout,SEC004,ENG-SEC004-004,rail repair,low,high,75,2026-01-07T16:15:00,2026-01-17T19:15:00,track_team|lifting_equipment,approved
+MT0005,S&T,cable,SEC014,SNT-SEC014-005,cable inspection,low,medium,180,2026-01-08T07:30:00,2026-01-14T11:30:00,signal_team|test_equipment,deferred
+MT0006,Traction,mast,SEC008,TRC-SEC008-006,electrical equipment inspection,low,high,60,2026-01-05T11:00:00,2026-01-14T18:00:00,traction_team|electrical_test_kit,requested
+MT0007,Engineering,rail,SEC002,ENG-SEC002-007,track inspection,medium,medium,75,2026-01-08T10:30:00,2026-01-15T17:30:00,track_team|inspection_trolley,requested
+MT0008,S&T,telecom,SEC008,SNT-SEC008-008,cable inspection,high,medium,90,2026-01-07T15:30:00,2026-01-11T17:30:00,signal_team|interlocking_specialist,approved
+MT0009,Traction,OHE,SEC005,TRC-SEC005-009,OHE inspection,medium,low,180,2026-01-05T09:15:00,2026-01-10T15:15:00,traction_team|electrical_test_kit,requested
+MT0010,Engineering,sleeper,SEC007,ENG-SEC007-010,track inspection,medium,medium,45,2026-01-05T07:30:00,2026-01-12T12:30:00,track_team|inspection_trolley,requested
+MT0011,S&T,interlocking,SEC011,SNT-SEC011-011,signalling equipment maintenance,high,high,75,2026-01-09T07:15:00,2026-01-13T14:15:00,signal_team|test_equipment,requested
+MT0012,Traction,substation_equipment,SEC013,TRC-SEC013-012,electrical equipment inspection,critical,medium,45,2026-01-07T13:15:00,2026-01-09T19:15:00,traction_team|OHE_vehicle,requested
+MT0013,Engineering,turnout,SEC008,ENG-SEC008-013,turnout maintenance,medium,low,150,2026-01-10T07:30:00,2026-01-14T14:30:00,track_team|turnout_specialist,approved
+MT0014,S&T,signal,SEC016,SNT-SEC016-014,cable inspection,high,high,45,2026-01-11T15:00:00,2026-01-15T18:00:00,signal_team|test_equipment,approved
+MT0015,Traction,isolator,SEC005,TRC-SEC005-015,OHE inspection,low,high,150,2026-01-08T08:15:00,2026-01-15T14:15:00,traction_team|electrical_test_kit,approved
+MT0016,Engineering,turnout,SEC012,ENG-SEC012-016,rail repair,medium,medium,120,2026-01-08T15:30:00,2026-01-15T19:30:00,track_team|turnout_specialist,requested
+MT0017,S&T,signal,SEC006,SNT-SEC006-017,telecom equipment maintenance,high,medium,90,2026-01-10T16:30:00,2026-01-15T21:30:00,signal_team|test_equipment,deferred
+MT0018,Traction,isolator,SEC017,TRC-SEC017-018,electrical equipment inspection,critical,high,150,2026-01-06T11:00:00,2026-01-08T18:00:00,traction_team|isolator_specialist,approved
+MT0019,Engineering,track,SEC012,ENG-SEC012-019,rail repair,medium,medium,75,2026-01-08T14:00:00,2026-01-14T18:00:00,track_team|rail_grinder,requested
+MT0020,S&T,cable,SEC005,SNT-SEC005-020,cable inspection,medium,low,150,2026-01-05T16:30:00,2026-01-09T18:30:00,signal_team|test_equipment,approved
+MT0021,Traction,substation_equipment,SEC005,TRC-SEC005-021,OHE maintenance,medium,medium,180,2026-01-10T09:45:00,2026-01-15T09:45:00,traction_team|electrical_test_kit,requested
+MT0022,Engineering,rail,SEC009,ENG-SEC009-022,sleeper replacement,low,medium,150,2026-01-06T09:00:00,2026-01-16T13:00:00,track_team|lifting_equipment,requested
+MT0023,S&T,interlocking,SEC004,SNT-SEC004-023,cable inspection,low,medium,120,2026-01-05T17:30:00,2026-01-11T19:30:00,telecom_team|test_equipment,requested
+MT0024,Traction,mast,SEC009,TRC-SEC009-024,OHE inspection,low,low,45,2026-01-05T10:30:00,2026-01-11T17:30:00,traction_team|isolator_specialist,requested
+MT0025,Engineering,rail,SEC009,ENG-SEC009-025,rail repair,high,low,90,2026-01-05T15:00:00,2026-01-09T18:00:00,track_team|lifting_equipment,approved
+MT0026,S&T,interlocking,SEC013,SNT-SEC013-026,signal inspection,low,medium,45,2026-01-10T09:45:00,2026-01-19T09:45:00,signal_team|cable_team,approved
+MT0027,Traction,OHE,SEC008,TRC-SEC008-027,OHE maintenance,medium,low,90,2026-01-11T17:30:00,2026-01-15T20:30:00,traction_team|isolator_specialist,requested
+MT0028,Engineering,track,SEC011,ENG-SEC011-028,rail repair,medium,low,60,2026-01-11T13:15:00,2026-01-15T15:15:00,track_team|turnout_specialist,deferred
+MT0029,S&T,signal,SEC002,SNT-SEC002-029,signal inspection,medium,high,45,2026-01-07T14:00:00,2026-01-14T18:00:00,telecom_team|test_equipment,requested
+MT0030,Traction,mast,SEC011,TRC-SEC011-030,OHE maintenance,low,medium,120,2026-01-08T16:15:00,2026-01-14T16:15:00,traction_team|isolator_specialist,requested
+MT0031,Engineering,track,SEC003,ENG-SEC003-031,rail repair,medium,low,60,2026-01-05T08:00:00,2026-01-10T10:00:00,track_team|lifting_equipment,approved
+MT0032,S&T,signal,SEC013,SNT-SEC013-032,signal inspection,medium,low,45,2026-01-09T09:15:00,2026-01-13T11:15:00,signal_team|cable_team,approved
+MT0033,Traction,substation_equipment,SEC008,TRC-SEC008-033,OHE maintenance,medium,medium,60,2026-01-10T17:15:00,2026-01-14T21:15:00,traction_team|electrical_test_kit,requested
+MT0034,Engineering,rail,SEC001,ENG-SEC001-034,track inspection,critical,medium,75,2026-01-06T08:15:00,2026-01-09T13:15:00,track_team|rail_grinder,requested
+MT0035,S&T,telecom,SEC014,SNT-SEC014-035,cable inspection,low,high,75,2026-01-11T10:45:00,2026-01-18T10:45:00,signal_team|interlocking_specialist,approved
+MT0036,Traction,substation_equipment,SEC009,TRC-SEC009-036,OHE inspection,medium,low,60,2026-01-06T11:30:00,2026-01-13T12:30:00,traction_team|OHE_vehicle,requested
+MT0037,Engineering,track,SEC003,ENG-SEC003-037,track inspection,high,low,120,2026-01-10T11:45:00,2026-01-15T12:45:00,track_team|lifting_equipment,approved
+MT0038,S&T,signal,SEC013,SNT-SEC013-038,telecom equipment maintenance,low,medium,45,2026-01-06T10:00:00,2026-01-15T14:00:00,signal_team|cable_team,requested
+MT0039,Traction,isolator,SEC016,TRC-SEC016-039,OHE maintenance,medium,low,90,2026-01-10T14:45:00,2026-01-14T17:45:00,traction_team|OHE_vehicle,deferred
+MT0040,Engineering,rail,SEC008,ENG-SEC008-040,turnout maintenance,high,low,75,2026-01-10T16:15:00,2026-01-12T17:15:00,track_team|inspection_trolley,requested
+MT0041,S&T,interlocking,SEC002,SNT-SEC002-041,cable inspection,high,low,75,2026-01-08T13:00:00,2026-01-13T18:00:00,signal_team|interlocking_specialist,deferred
+MT0042,Traction,substation_equipment,SEC007,TRC-SEC007-042,electrical equipment inspection,low,low,150,2026-01-06T13:00:00,2026-01-16T14:00:00,traction_team|electrical_test_kit,requested
+MT0043,Engineering,track,SEC012,ENG-SEC012-043,rail repair,medium,high,120,2026-01-10T14:00:00,2026-01-14T17:00:00,track_team|lifting_equipment,requested
+MT0044,S&T,interlocking,SEC015,SNT-SEC015-044,cable inspection,high,high,90,2026-01-06T15:45:00,2026-01-08T18:45:00,signal_team|cable_team,requested
+MT0045,Traction,substation_equipment,SEC010,TRC-SEC010-045,OHE inspection,low,medium,45,2026-01-11T13:15:00,2026-01-17T20:15:00,traction_team|isolator_specialist,requested
+MT0046,Engineering,rail,SEC017,ENG-SEC017-046,turnout maintenance,low,medium,180,2026-01-07T17:45:00,2026-01-13T17:45:00,track_team|inspection_trolley,requested
+MT0047,S&T,interlocking,SEC015,SNT-SEC015-047,cable inspection,low,medium,75,2026-01-10T17:45:00,2026-01-18T17:45:00,signal_team|test_equipment,requested
+MT0048,Traction,mast,SEC003,TRC-SEC003-048,electrical equipment inspection,medium,medium,180,2026-01-07T14:00:00,2026-01-12T14:00:00,traction_team|OHE_vehicle,requested
+MT0049,Engineering,track,SEC007,ENG-SEC007-049,turnout maintenance,medium,medium,150,2026-01-07T11:15:00,2026-01-12T13:15:00,track_team|turnout_specialist,approved
+MT0050,S&T,signal,SEC006,SNT-SEC006-050,signal inspection,medium,medium,75,2026-01-10T07:00:00,2026-01-14T11:00:00,telecom_team|test_equipment,requested
+MT0051,Traction,substation_equipment,SEC001,TRC-SEC001-051,electrical equipment inspection,medium,medium,45,2026-01-05T08:30:00,2026-01-12T11:30:00,traction_team|OHE_vehicle,approved
+MT0052,Engineering,turnout,SEC014,ENG-SEC014-052,track inspection,medium,low,150,2026-01-09T09:15:00,2026-01-15T14:15:00,track_team|lifting_equipment,requested
+MT0053,S&T,signal,SEC016,SNT-SEC016-053,signalling equipment maintenance,medium,low,180,2026-01-05T08:00:00,2026-01-12T09:00:00,signal_team|interlocking_specialist,requested
+MT0054,Traction,isolator,SEC008,TRC-SEC008-054,OHE maintenance,critical,high,120,2026-01-08T16:30:00,2026-01-11T19:30:00,traction_team|electrical_test_kit,requested
+MT0055,Engineering,sleeper,SEC001,ENG-SEC001-055,rail repair,low,medium,45,2026-01-11T17:45:00,2026-01-20T00:45:00,track_team|lifting_equipment,requested
+MT0056,S&T,interlocking,SEC011,SNT-SEC011-056,cable inspection,high,medium,75,2026-01-06T10:45:00,2026-01-11T13:45:00,signal_team|interlocking_specialist,deferred
+MT0057,Traction,mast,SEC012,TRC-SEC012-057,OHE maintenance,medium,high,60,2026-01-07T12:15:00,2026-01-12T12:15:00,traction_team|isolator_specialist,requested
+MT0058,Engineering,rail,SEC005,ENG-SEC005-058,turnout maintenance,medium,medium,75,2026-01-05T15:30:00,2026-01-12T18:30:00,track_team|turnout_specialist,approved
+MT0059,S&T,signal,SEC003,SNT-SEC003-059,telecom equipment maintenance,high,low,90,2026-01-09T13:30:00,2026-01-12T15:30:00,telecom_team|test_equipment,requested
+MT0060,Traction,substation_equipment,SEC012,TRC-SEC012-060,OHE inspection,high,medium,180,2026-01-07T07:45:00,2026-01-09T07:45:00,traction_team|isolator_specialist,requested
+MT0061,Engineering,turnout,SEC001,ENG-SEC001-061,track inspection,critical,medium,60,2026-01-08T11:00:00,2026-01-10T13:00:00,track_team|turnout_specialist,requested
+MT0062,S&T,cable,SEC011,SNT-SEC011-062,signalling equipment maintenance,medium,medium,180,2026-01-10T09:00:00,2026-01-15T14:00:00,signal_team|cable_team,requested
+MT0063,Traction,mast,SEC008,TRC-SEC008-063,OHE maintenance,high,medium,120,2026-01-09T13:00:00,2026-01-12T15:00:00,traction_team|electrical_test_kit,deferred
+MT0064,Engineering,sleeper,SEC013,ENG-SEC013-064,turnout maintenance,low,low,45,2026-01-05T13:30:00,2026-01-15T14:30:00,track_team|inspection_trolley,requested
+MT0065,S&T,signal,SEC011,SNT-SEC011-065,telecom equipment maintenance,low,medium,180,2026-01-10T11:15:00,2026-01-16T14:15:00,signal_team|interlocking_specialist,requested
+MT0066,Traction,substation_equipment,SEC015,TRC-SEC015-066,electrical equipment inspection,medium,medium,180,2026-01-08T10:30:00,2026-01-12T11:30:00,traction_team|OHE_vehicle,approved
+MT0067,Engineering,rail,SEC009,ENG-SEC009-067,rail repair,low,medium,180,2026-01-06T09:30:00,2026-01-14T11:30:00,track_team|inspection_trolley,requested
+MT0068,S&T,cable,SEC005,SNT-SEC005-068,telecom equipment maintenance,medium,high,150,2026-01-05T11:30:00,2026-01-09T17:30:00,telecom_team|test_equipment,requested
+MT0069,Traction,substation_equipment,SEC015,TRC-SEC015-069,electrical equipment inspection,medium,medium,120,2026-01-06T14:00:00,2026-01-11T18:00:00,traction_team|electrical_test_kit,deferred
+MT0070,Engineering,turnout,SEC009,ENG-SEC009-070,track inspection,high,medium,60,2026-01-10T14:30:00,2026-01-15T17:30:00,track_team|turnout_specialist,requested
+MT0071,S&T,telecom,SEC006,SNT-SEC006-071,cable inspection,critical,medium,150,2026-01-11T15:45:00,2026-01-12T22:45:00,signal_team|interlocking_specialist,deferred
+MT0072,Traction,substation_equipment,SEC007,TRC-SEC007-072,OHE maintenance,critical,medium,75,2026-01-05T12:00:00,2026-01-08T17:00:00,traction_team|electrical_test_kit,approved
+MT0073,Engineering,rail,SEC004,ENG-SEC004-073,turnout maintenance,medium,high,75,2026-01-05T13:30:00,2026-01-11T18:30:00,track_team|lifting_equipment,requested
+MT0074,S&T,signal,SEC003,SNT-SEC003-074,telecom equipment maintenance,low,medium,90,2026-01-05T16:00:00,2026-01-12T20:00:00,signal_team|interlocking_specialist,deferred
+MT0075,Traction,OHE,SEC013,TRC-SEC013-075,OHE inspection,medium,medium,150,2026-01-10T17:45:00,2026-01-16T23:45:00,traction_team|isolator_specialist,approved
+MT0076,Engineering,track,SEC011,ENG-SEC011-076,track inspection,high,medium,180,2026-01-07T14:00:00,2026-01-12T19:00:00,track_team|inspection_trolley,approved
+MT0077,S&T,interlocking,SEC011,SNT-SEC011-077,cable inspection,low,low,75,2026-01-07T15:30:00,2026-01-14T21:30:00,telecom_team|test_equipment,requested
+MT0078,Traction,OHE,SEC014,TRC-SEC014-078,OHE inspection,medium,medium,180,2026-01-10T10:45:00,2026-01-16T17:45:00,traction_team|electrical_test_kit,deferred
+MT0079,Engineering,turnout,SEC011,ENG-SEC011-079,track inspection,low,high,150,2026-01-09T07:45:00,2026-01-15T09:45:00,track_team|inspection_trolley,approved
+MT0080,S&T,interlocking,SEC013,SNT-SEC013-080,signal inspection,high,medium,75,2026-01-05T16:00:00,2026-01-09T16:00:00,telecom_team|test_equipment,requested
+MT0081,Traction,mast,SEC016,TRC-SEC016-081,OHE inspection,high,low,60,2026-01-11T16:45:00,2026-01-16T16:45:00,traction_team|isolator_specialist,requested
+MT0082,Engineering,rail,SEC013,ENG-SEC013-082,track inspection,low,medium,150,2026-01-07T07:15:00,2026-01-14T13:15:00,track_team|inspection_trolley,requested
+MT0083,S&T,telecom,SEC014,SNT-SEC014-083,cable inspection,low,high,60,2026-01-09T13:30:00,2026-01-16T17:30:00,signal_team|cable_team,approved
+MT0084,Traction,substation_equipment,SEC016,TRC-SEC016-084,electrical equipment inspection,medium,high,45,2026-01-06T17:15:00,2026-01-13T23:15:00,traction_team|electrical_test_kit,requested
+MT0085,Engineering,turnout,SEC017,ENG-SEC017-085,track inspection,medium,medium,60,2026-01-05T13:45:00,2026-01-10T15:45:00,track_team|rail_grinder,approved
+MT0086,S&T,telecom,SEC001,SNT-SEC001-086,signalling equipment maintenance,medium,high,120,2026-01-10T16:00:00,2026-01-15T23:00:00,signal_team|interlocking_specialist,approved
+MT0087,Traction,substation_equipment,SEC008,TRC-SEC008-087,OHE maintenance,medium,low,45,2026-01-10T10:45:00,2026-01-14T15:45:00,traction_team|OHE_vehicle,requested
+MT0088,Engineering,sleeper,SEC015,ENG-SEC015-088,sleeper replacement,high,medium,60,2026-01-07T16:15:00,2026-01-12T21:15:00,track_team|turnout_specialist,requested
+MT0089,S&T,cable,SEC007,SNT-SEC007-089,telecom equipment maintenance,high,low,45,2026-01-10T13:00:00,2026-01-12T16:00:00,signal_team|interlocking_specialist,deferred
+MT0090,Traction,mast,SEC002,TRC-SEC002-090,electrical equipment inspection,medium,medium,180,2026-01-11T17:45:00,2026-01-16T23:45:00,traction_team|OHE_vehicle,approved
+MT0091,Engineering,sleeper,SEC017,ENG-SEC017-091,turnout maintenance,critical,medium,45,2026-01-10T10:45:00,2026-01-13T14:45:00,track_team|inspection_trolley,approved
+MT0092,S&T,telecom,SEC002,SNT-SEC002-092,cable inspection,low,medium,120,2026-01-08T12:15:00,2026-01-15T18:15:00,signal_team|interlocking_specialist,requested
+MT0093,Traction,mast,SEC002,TRC-SEC002-093,OHE inspection,low,medium,60,2026-01-08T17:00:00,2026-01-18T22:00:00,traction_team|electrical_test_kit,approved
+MT0094,Engineering,turnout,SEC013,ENG-SEC013-094,sleeper replacement,high,high,180,2026-01-09T09:45:00,2026-01-14T14:45:00,track_team|rail_grinder,approved
+MT0095,S&T,signal,SEC013,SNT-SEC013-095,cable inspection,medium,high,180,2026-01-05T14:30:00,2026-01-09T14:30:00,telecom_team|test_equipment,requested
+MT0096,Traction,mast,SEC002,TRC-SEC002-096,electrical equipment inspection,medium,medium,120,2026-01-08T15:15:00,2026-01-15T16:15:00,traction_team|electrical_test_kit,requested
+MT0097,Engineering,rail,SEC011,ENG-SEC011-097,track inspection,high,medium,180,2026-01-05T16:30:00,2026-01-08T18:30:00,track_team|lifting_equipment,requested
+MT0098,S&T,cable,SEC012,SNT-SEC012-098,signalling equipment maintenance,medium,medium,60,2026-01-09T07:15:00,2026-01-15T07:15:00,signal_team|interlocking_specialist,requested
+MT0099,Traction,substation_equipment,SEC007,TRC-SEC007-099,OHE maintenance,low,high,45,2026-01-05T14:15:00,2026-01-11T18:15:00,traction_team|isolator_specialist,approved
+MT0100,Engineering,track,SEC013,ENG-SEC013-100,turnout maintenance,low,high,75,2026-01-09T17:00:00,2026-01-17T22:00:00,track_team|rail_grinder,deferred
+MT0101,S&T,signal,SEC015,SNT-SEC015-101,signalling equipment maintenance,high,low,150,2026-01-06T11:45:00,2026-01-08T14:45:00,telecom_team|test_equipment,approved
+MT0102,Traction,isolator,SEC003,TRC-SEC003-102,electrical equipment inspection,low,low,120,2026-01-11T10:15:00,2026-01-18T11:15:00,traction_team|isolator_specialist,approved
+MT0103,Engineering,rail,SEC015,ENG-SEC015-103,sleeper replacement,medium,medium,150,2026-01-11T08:30:00,2026-01-15T14:30:00,track_team|lifting_equipment,requested
+MT0104,S&T,signal,SEC002,SNT-SEC002-104,telecom equipment maintenance,critical,low,60,2026-01-09T11:15:00,2026-01-11T12:15:00,telecom_team|test_equipment,requested
+MT0105,Traction,substation_equipment,SEC004,TRC-SEC004-105,OHE inspection,high,medium,75,2026-01-05T10:15:00,2026-01-08T15:15:00,traction_team|electrical_test_kit,deferred
+MT0106,Engineering,rail,SEC001,ENG-SEC001-106,track inspection,high,medium,45,2026-01-11T11:45:00,2026-01-14T13:45:00,track_team|turnout_specialist,approved
+MT0107,S&T,cable,SEC001,SNT-SEC001-107,cable inspection,low,high,60,2026-01-11T13:30:00,2026-01-20T18:30:00,signal_team|interlocking_specialist,requested
+MT0108,Traction,mast,SEC014,TRC-SEC014-108,electrical equipment inspection,low,medium,120,2026-01-09T16:15:00,2026-01-19T23:15:00,traction_team|electrical_test_kit,deferred
