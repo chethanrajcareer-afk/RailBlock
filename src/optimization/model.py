@@ -512,11 +512,42 @@ def build_model(data):
                 + maintenance_intervals
             )
 
-    # ---------------------------------------------------------
+        # ---------------------------------------------------------
     # 13. Objective function
     # ---------------------------------------------------------
 
     objective_terms = []
+
+    # ---------------------------------------------------------
+    # Deadline reference
+    # ---------------------------------------------------------
+
+    # Deadline pressure is calculated relative to the latest
+    # deadline in the current task dataset.
+    #
+    # Earlier deadlines receive a higher score.
+    #
+    # Example:
+    #
+    # Latest deadline       -> 0 points
+    # 1 day earlier         -> 5 points
+    # 5 days earlier       -> 25 points
+    #
+    # This keeps deadline pressure proportional to the
+    # planning dataset rather than using arbitrary calendar
+    # dates.
+
+    task_deadlines = pd.to_datetime(
+        tasks_df["deadline"]
+    )
+
+    latest_deadline = task_deadlines.max()
+
+    DEADLINE_PRESSURE_PER_DAY = 5
+
+    # ---------------------------------------------------------
+    # Calculate score for every candidate assignment
+    # ---------------------------------------------------------
 
     for (
         task_index,
@@ -525,12 +556,12 @@ def build_model(data):
 
         task = tasks_df.loc[task_index]
 
+        # -----------------------------------------------------
+        # Criticality score
+        # -----------------------------------------------------
+
         criticality = str(
             task["criticality"]
-        ).lower()
-
-        urgency = str(
-            task["urgency"]
         ).lower()
 
         criticality_score = CRITICALITY_WEIGHT.get(
@@ -538,14 +569,44 @@ def build_model(data):
             0,
         )
 
+        # -----------------------------------------------------
+        # Urgency score
+        # -----------------------------------------------------
+
+        urgency = str(
+            task["urgency"]
+        ).lower()
+
         urgency_score = URGENCY_WEIGHT.get(
             urgency,
             0,
         )
 
+        # -----------------------------------------------------
+        # Deadline pressure score
+        # -----------------------------------------------------
+
+        task_deadline = pd.Timestamp(
+            task["deadline"]
+        )
+
+        days_until_reference = (
+            latest_deadline - task_deadline
+        ).days
+
+        deadline_pressure_score = max(
+            0,
+            days_until_reference,
+        ) * DEADLINE_PRESSURE_PER_DAY
+
+        # -----------------------------------------------------
+        # Combined maintenance priority
+        # -----------------------------------------------------
+
         priority_score = (
             criticality_score
             + urgency_score
+            + deadline_pressure_score
         )
 
         objective_terms.append(
@@ -572,7 +633,7 @@ def build_model(data):
         sum(objective_terms)
     )
 
-    # ---------------------------------------------------------
+        # ---------------------------------------------------------
     # 16. Return model objects
     # ---------------------------------------------------------
 
