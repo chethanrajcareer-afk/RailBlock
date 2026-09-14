@@ -14,7 +14,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = PROJECT_ROOT / "data" / "synthetic"
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
 
-SCHEDULE_FILE = OUTPUT_DIR / "optimized_schedule.csv"
+BASELINE_SCHEDULE_FILE = OUTPUT_DIR / "optimized_schedule.csv"
+RISK_AWARE_SCHEDULE_FILE = OUTPUT_DIR / "risk_aware_schedule.csv"
 
 
 # =========================================================
@@ -49,6 +50,7 @@ class ValidationResult:
             ]
         )
 
+    @property
     def total_violations(self):
         """Return the total number of detected violations."""
 
@@ -69,8 +71,15 @@ class ValidationResult:
 # Data loading
 # =========================================================
 
-def load_validation_data():
-    """Load the datasets required for schedule validation."""
+def load_validation_data(schedule_file):
+    """Load datasets required for schedule validation."""
+
+    schedule_file = Path(schedule_file)
+
+    if not schedule_file.exists():
+        raise FileNotFoundError(
+            f"Schedule file not found: {schedule_file}"
+        )
 
     tasks = pd.read_csv(
         DATA_DIR / "maintenance_tasks.csv"
@@ -84,9 +93,7 @@ def load_validation_data():
         DATA_DIR / "train_movements.csv"
     )
 
-    schedule = pd.read_csv(
-        SCHEDULE_FILE
-    )
+    schedule = pd.read_csv(schedule_file)
 
     return tasks, blocks, trains, schedule
 
@@ -104,7 +111,7 @@ def validate_schedule(
     """
     Independently validate an optimized RailBlock schedule.
 
-    The validator checks:
+    Checks:
 
         1. Task timing
         2. Block timing
@@ -384,11 +391,12 @@ def validate_schedule(
 def print_validation_report(
     schedule: pd.DataFrame,
     result: ValidationResult,
+    schedule_name: str,
 ):
     """Print a human-readable validation report."""
 
     print("\n" + "=" * 60)
-    print("RAILBLOCK SCHEDULE VALIDATION")
+    print(f"RAILBLOCK {schedule_name.upper()} SCHEDULE VALIDATION")
     print("=" * 60)
 
     print(
@@ -438,7 +446,7 @@ def print_validation_report(
 
     print(
         "Total violations:",
-        result.total_violations(),
+        result.total_violations,
     )
 
     print("=" * 60)
@@ -448,11 +456,11 @@ def print_validation_report(
 # Command-line entry point
 # =========================================================
 
-def main():
-    """Run schedule validation from the command line."""
+def validate_file(schedule_file, schedule_name):
+    """Validate one schedule file."""
 
     tasks, blocks, trains, schedule = (
-        load_validation_data()
+        load_validation_data(schedule_file)
     )
 
     result = validate_schedule(
@@ -465,7 +473,50 @@ def main():
     print_validation_report(
         schedule,
         result,
+        schedule_name,
     )
+
+    return result
+
+
+def main():
+    """Validate baseline and risk-aware schedules."""
+
+    baseline_result = validate_file(
+        BASELINE_SCHEDULE_FILE,
+        "baseline",
+    )
+
+    risk_aware_result = validate_file(
+        RISK_AWARE_SCHEDULE_FILE,
+        "risk-aware",
+    )
+
+    print("\n" + "=" * 60)
+    print("FINAL VALIDATION COMPARISON")
+    print("=" * 60)
+
+    print(
+        "Baseline valid:",
+        baseline_result.is_valid,
+    )
+
+    print(
+        "Risk-aware valid:",
+        risk_aware_result.is_valid,
+    )
+
+    print(
+        "Baseline violations:",
+        baseline_result.total_violations,
+    )
+
+    print(
+        "Risk-aware violations:",
+        risk_aware_result.total_violations,
+    )
+
+    print("=" * 60)
 
 
 if __name__ == "__main__":
