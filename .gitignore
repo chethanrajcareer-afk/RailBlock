@@ -54,3 +54,4 @@ outputs/*.csv
 
 data/raw/*
 !data/raw/.gitkeep
+outputs/
