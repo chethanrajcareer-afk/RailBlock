@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+
 import sys
 from pathlib import Path
 
@@ -15,6 +16,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from dashboard.components.blocks import render_block_explorer, with_block_duration
 from dashboard.components.corridor import render_corridor
 from dashboard.components.maintenance import render_maintenance_explorer
+from dashboard.components.planning import render_planning_dashboard
 from dashboard.components.section_detail import render_section_detail
 from dashboard.components.timeline import render_timeline
 from dashboard.components.trains import render_train_explorer
@@ -22,7 +24,7 @@ from dashboard.utils.data_loader import DashboardDataError, default_data_dir, lo
 
 
 st.set_page_config(
-    page_title="RailBlock — Railway Maintenance Planning Explorer",
+    page_title="RailBlock — Intelligent Maintenance Block Planning",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -101,8 +103,9 @@ def main() -> None:
     _apply_control_room_style()
     st.title("RailBlock — Railway Maintenance Planning Explorer")
     st.caption(
-        "Phase 0 prototype using fictional synthetic data. This is a research/development "
-        "prototype and does not represent operational Indian Railways data or rules."
+    "Optimization-driven maintenance planning prototype using fictional "
+    "synthetic railway data. This does not represent operational Indian "
+    "Railways data or rules."
     )
 
     try:
@@ -113,6 +116,13 @@ def main() -> None:
         st.stop()
 
     _render_kpis(data)
+
+    st.divider()
+    render_planning_dashboard(
+    data["maintenance_tasks"],
+    data["train_movements"],
+)
+
     st.divider()
     render_corridor(data["stations"])
     st.divider()

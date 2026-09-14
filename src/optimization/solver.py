@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 from datetime import datetime, timedelta
+
 from pathlib import Path
 
 import pandas as pd
+
 from ortools.sat.python import cp_model
 
 from src.optimization.model import (
@@ -19,6 +21,7 @@ from src.optimization.model import (
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
+
 OUTPUT_FILE = OUTPUT_DIR / "optimized_schedule.csv"
 
 
@@ -30,10 +33,8 @@ def solver_minutes_to_timestamp(minutes: int) -> pd.Timestamp:
     """
     Convert the integer-minute representation used by CP-SAT
     back into a pandas timestamp.
-
     The optimization model represents timestamps as minutes
     from the Unix epoch.
-
     Using pandas Timestamp keeps the conversion consistent
     with the timestamps used during model construction.
     """
@@ -52,7 +53,9 @@ def solve():
     """Build and solve the RailBlock optimization model."""
 
     print("=" * 60)
+
     print("RAILBLOCK OPTIMIZATION ENGINE")
+
     print("=" * 60)
 
     # ---------------------------------------------------------
@@ -62,7 +65,9 @@ def solve():
     data = load_optimization_data()
 
     print(f"Maintenance tasks : {len(data.tasks)}")
+
     print(f"Block windows     : {len(data.blocks)}")
+
     print(f"Train movements   : {len(data.trains)}")
 
     # ---------------------------------------------------------
@@ -76,6 +81,7 @@ def solve():
         assignment_vars,
         interval_vars,
         block_used_vars,
+        block_used_minutes_vars,
     ) = build_model(data)
 
     print(
@@ -99,9 +105,11 @@ def solve():
     solver = cp_model.CpSolver()
 
     # Reasonable time limit for the current prototype.
+
     solver.parameters.max_time_in_seconds = 30
 
     # Allow CP-SAT to search in parallel.
+
     solver.parameters.num_workers = 8
 
     status = solver.Solve(model)
@@ -111,7 +119,9 @@ def solve():
     # ---------------------------------------------------------
 
     print("\n" + "=" * 60)
+
     print("SOLVER RESULT")
+
     print("=" * 60)
 
     print("Status:", solver.StatusName(status))
@@ -120,7 +130,9 @@ def solve():
         cp_model.OPTIMAL,
         cp_model.FEASIBLE,
     ):
+
         print("No feasible schedule was found.")
+
         return
 
     # ---------------------------------------------------------
@@ -137,9 +149,11 @@ def solve():
         # Only extract selected assignments.
 
         if solver.Value(assignment_var) != 1:
+
             continue
 
         task = data.tasks.loc[task_index]
+
         block = data.blocks.loc[block_index]
 
         interval = interval_vars[
@@ -173,21 +187,31 @@ def solve():
         scheduled_rows.append(
             {
                 "task_id": task["task_id"],
+
                 "department": task["department"],
+
                 "section_id": task["section_id"],
+
                 "task_type": task["task_type"],
+
                 "criticality": task["criticality"],
+
                 "urgency": task["urgency"],
+
                 "estimated_duration_min": task[
                     "estimated_duration_min"
                 ],
+
                 "block_window_id": block[
                     "block_window_id"
                 ],
+
                 "block_date": block["date"],
+
                 "scheduled_start": scheduled_start.isoformat(
                     timespec="minutes"
                 ),
+
                 "scheduled_end": scheduled_end.isoformat(
                     timespec="minutes"
                 ),
@@ -221,6 +245,7 @@ def solve():
     # ---------------------------------------------------------
 
     scheduled_count = len(result)
+
     total_tasks = len(data.tasks)
 
     used_blocks = sum(
@@ -229,11 +254,14 @@ def solve():
     )
 
     print("\nTasks scheduled :", scheduled_count)
+
     print("Tasks total     :", total_tasks)
+
     print(
         "Tasks unscheduled:",
         total_tasks - scheduled_count,
     )
+
     print("Blocks used     :", used_blocks)
 
     if total_tasks:
@@ -252,6 +280,7 @@ def solve():
     )
 
     print("\nOutput saved to:")
+
     print(OUTPUT_FILE)
 
     # ---------------------------------------------------------
@@ -261,6 +290,7 @@ def solve():
     if not result.empty:
 
         print("\nFIRST SCHEDULED TASKS")
+
         print("-" * 60)
 
         print(
@@ -274,7 +304,9 @@ def solve():
     # ---------------------------------------------------------
 
     print("\n" + "=" * 60)
+
     print("RAILBLOCK SOLVE COMPLETE")
+
     print("=" * 60)
 
 
@@ -283,4 +315,5 @@ def solve():
 # =========================================================
 
 if __name__ == "__main__":
+
     solve()
