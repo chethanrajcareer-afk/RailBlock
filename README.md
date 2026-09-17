@@ -38,6 +38,15 @@ RailBlock approaches the problem as a **constrained optimization problem**, with
 
 ---
 
+## 🏗️ System Architecture
+
+![RailBlock System Architecture](docs/architecture.png)
+
+RailBlock follows a hybrid Machine Learning + Operations Research architecture. 
+Machine learning provides asset failure-risk signals, while constraint optimization 
+determines operationally feasible maintenance schedules. The resulting schedules 
+are independently validated and translated into explainable decisions.
+
 ## 🧠 Core Approach
 
 RailBlock follows a hybrid:
@@ -449,24 +458,24 @@ Temporal competition analysis distinguishes between tasks blocked by trains and 
                 │                  ┌──────────────────┐
                 └─────────────────►│ CP-SAT Optimizer │
                                    │                  │
-                                   │ Constraints       │
-                                   │ Objectives        │
+                                   │ Constraints      │
+                                   │ Objectives       │
                                    └────────┬─────────┘
                                             │
                                             ▼
                                    ┌──────────────────┐
-                                   │ Schedule Output   │
+                                   │ Schedule Output  │
                                    └────────┬─────────┘
                                             │
                          ┌──────────────────┼──────────────────┐
                          ▼                  ▼                  ▼
                   ┌────────────┐    ┌──────────────┐   ┌────────────┐
-                  │ Validator  │    │ Explainability│   │ Analytics  │
+                  │ Validator  │    │ Explainability│   │ Analytics │
                   └────────────┘    └──────────────┘   └────────────┘
                                             │
                                             ▼
                                    ┌──────────────────┐
-                                   │    Dashboard      │
+                                   │    Dashboard     │
                                    └──────────────────┘
 ```
 
