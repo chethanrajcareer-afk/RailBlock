@@ -4,7 +4,9 @@
 
 RailBlock is a decision-support prototype for coordinating railway infrastructure maintenance with train operations.
 
-The system combines **Operations Research, Machine Learning, schedule validation, and explainable decision analysis** to determine which maintenance tasks can be safely scheduled into available railway block windows while considering train movements, task deadlines, maintenance duration, departmental coordination, and predicted asset failure risk.
+The system combines **Operations Research, Machine Learning, schedule validation, and explainable decision analysis** to determine which maintenance tasks can be feasibly scheduled under its explicit model constraints while considering train movements, task deadlines, maintenance duration, departmental coordination, and predicted asset failure risk.
+
+**Current stage — Phase 2.4.7:** RailBlock includes risk-aware CP-SAT scheduling, schedule validation, and sensitivity analysis. Its partial Phase 2.5 Streamlit dashboard visualizes and explains generated outputs; it does not yet support interactive re-optimization or What-if simulation.
 
 > **SIH Problem Statement:** AI-Powered Automatic Block Planning to Maximize Asset Availability for Train Operations on Indian Railways.
 
@@ -503,12 +505,14 @@ RailBlock/
 │   │   ├── generate_synthetic_data.py
 │   │   ├── generate_maintenance_history.py
 │   │   ├── build_asset_features.py
-│   │   └── validate_data.py
+│   │   ├── validate_data.py
+│   │   └── validation.py
 │   │
 │   ├── optimization/
 │   │   ├── model.py
 │   │   ├── model_risk_aware.py
 │   │   ├── candidates.py
+│   │   ├── compare_schedules.py
 │   │   ├── solver.py
 │   │   ├── solver_risk_aware.py
 │   │   ├── diagnostics.py
@@ -522,7 +526,9 @@ RailBlock/
 │   │
 │   └── prediction/
 │       ├── build_risk_dataset.py
+│       ├── risk_baseline.py
 │       ├── train_risk_model.py
+│       ├── train_risk_random_forest.py
 │       └── generate_risk_scores.py
 │
 ├── dashboard/
@@ -674,14 +680,14 @@ The prototype does not attempt to automate those responsibilities.
 - [x] Risk decision analysis
 - [x] Temporal competition analysis
 - [x] Risk-weight sensitivity analysis
+- [x] Asset-risk visualization dashboard
+- [x] Schedule timeline / Gantt-style view
+- [x] "Why this block?" decision-explanation view
 - [x] GitHub repository
 
 ### Next
 
-- [ ] Interactive optimization dashboard
-- [ ] Asset risk visualization
-- [ ] Schedule timeline / Gantt view
-- [ ] "Why this block?" interface
+- [ ] Interactive re-optimization dashboard
 - [ ] Baseline vs risk-aware comparison
 - [ ] What-if scenario simulation
 - [ ] API layer
