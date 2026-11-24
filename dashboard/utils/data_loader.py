@@ -1,4 +1,4 @@
-"""Load validated Phase 0 data for the RailBlock dashboard."""
+"""Load validated synthetic source data for the RailBlock dashboard."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ def project_root() -> Path:
 
 
 def default_data_dir() -> Path:
-    """Return the Phase 0 synthetic dataset directory."""
+    """Return the synthetic source-data directory."""
 
     return project_root() / "data" / "synthetic"
 
@@ -52,15 +52,15 @@ def load_dashboard_data(data_dir: str | Path | None = None) -> dict[str, pd.Data
     if missing:
         names = ", ".join(missing)
         raise DashboardDataError(
-            f"Expected Phase 0 synthetic data is missing from {directory}: {names}. "
-            "Run the Phase 0 generator before starting the dashboard."
+            f"Expected synthetic source data is missing from {directory}: {names}. "
+            "Run the synthetic-data generator before starting the dashboard."
         )
 
     try:
         datasets = validate_dataset_directory(directory)
     except DatasetValidationError as error:
         raise DashboardDataError(
-            "Phase 0 synthetic data failed validation. Resolve the dataset errors before "
+            "Synthetic source data failed validation. Resolve the dataset errors before "
             f"starting the dashboard.\n{error}"
         ) from error
     return _prepare_frames(datasets)

@@ -1,56 +1,89 @@
 # RailBlock technical problem definition
 
-## Context
+## Context and current scope
 
-RailBlock studies coordinated planning of maintenance blocks for a railway corridor. A block is a bounded period in which a section is available for defined maintenance work, subject to safe operational rules and planning constraints. The project treats the plan as decision support: a proposed plan must be reviewed by responsible railway and safety authorities before any real-world use.
+RailBlock studies coordinated planning of maintenance blocks for a railway
+corridor. A block is a bounded period in which a section is available for
+defined maintenance work, subject to the constraints modeled by the prototype.
+The project treats a schedule as decision support: responsible railway and
+safety authorities would need to review any real-world plan.
 
-The Phase 0 dataset is deliberately fictional. It is designed to exercise data validation and later scheduling research; it is not an operational model of Indian Railways.
+The synthetic-data foundation was completed in Phase 0. The current
+implementation is a Phase 2.4.7 risk-aware scheduling prototype, with a
+dashboard that displays its outputs. The data and results are fictional and
+are not an operational model of Indian Railways.
 
 ## Inputs
 
-The core planning problem is given:
+The implemented experiment reads:
 
-- maintenance tasks;
-- infrastructure sections;
-- train movements;
-- block availability;
-- task deadlines and required durations;
-- task criticality;
-- department and resource constraints; and
-- applicable maintenance dependencies.
+- maintenance tasks, including required duration, earliest start, deadline,
+  criticality, section, and other task attributes;
+- infrastructure sections and stations;
+- available maintenance block windows;
+- train movements, including service date, entry time, exit time, and section;
+- synthetic asset features and maintenance history for risk modelling; and
+- generated asset-risk scores for the risk-aware optimizer.
 
-Each task is assigned to a section and must be placed in one or more valid block windows. Future data sources may supply the equivalent information from maintenance-management and traffic/timetable systems, but no such integration is part of Phase 0.
+`src.data.validation` checks the required CSV structure and cross-file
+references before pipeline stages use the data.
 
-## Decision variables
+## Implemented decision variables
 
-A future scheduling engine will decide whether and when each task is scheduled, the block window(s) used, grouping of compatible work, and allocation of required departmental resources. Exact mathematical variables and scheduling granularity will be selected in Phase 1 after the data contract is stable.
+Candidate generation first creates every task/block placement that fits the
+task's basic timing and section eligibility rules. The CP-SAT model then makes
+the following decisions:
 
-## Objective
+- a Boolean assignment variable for each feasible candidate placement;
+- an optional maintenance interval associated with that candidate; and
+- a Boolean variable indicating whether an available block is used.
 
-Generate a feasible maintenance schedule that minimizes a weighted combination of:
+A task may be deliberately left unscheduled because the model uses an
+at-most-one constraint, rather than requiring every task to be assigned.
 
-- infrastructure downtime;
-- train operational disruption;
-- the number of separate blocks;
-- unused available block capacity; and
-- risk from delayed critical maintenance.
+## Implemented objective
 
-The weights must be explicit, configurable, and subject to domain review. They must not encode unverified real-railway operating assumptions.
+The baseline model maximizes a weighted score for scheduled work, rewarding
+criticality and urgency while penalizing unnecessary use of maintenance blocks.
+The risk-aware model preserves the feasibility model and adds asset-risk-based
+priority. Its risk weights can be varied by the sensitivity experiment.
 
-## Feasibility constraints
+The objective is a project-specific priority function. An `OPTIMAL` solver
+status proves optimality only for that encoded function and the modeled
+constraints; it does not prove that a plan is operationally safe or globally
+best for a real railway.
 
-Any candidate schedule must respect:
+## Implemented feasibility constraints
 
-- safety constraints;
-- maintenance task deadlines;
-- required maintenance duration;
-- section and block-window availability;
-- train-movement conflicts;
-- department and resource capacity constraints; and
-- maintenance dependencies where applicable.
+The current models enforce:
 
-The Phase 0 validator confirms only basic data integrity. It does not certify operational feasibility, safety, dispatching rules, or real-world block authorization.
+- at most one selected candidate for each maintenance task;
+- placement only in candidate windows generated as feasible;
+- a selected interval fitting completely inside its block;
+- task earliest-start and deadline timing;
+- no overlapping selected maintenance intervals in the same block; and
+- no overlap between selected maintenance and modeled train movements in the
+  same section.
 
-## Planning horizons and outputs
+The schedule validator independently rechecks selected placements, including
+task/block timing and train conflicts. This provides a useful regression check
+but is not a substitute for real-world safety validation.
 
-RailBlock is intended to support weekly and monthly planning. A future plan should identify scheduled tasks, assigned block windows, remaining capacity, unscheduled tasks and reasons, and explainable objective/impact measures. Day 1 contains no optimizer and emits no recommended real-world schedule.
+## Not yet modeled
+
+The following are important future capabilities, not current guarantees:
+
+- department/resource capacity constraints;
+- maintenance dependency constraints;
+- real dispatching, possession, safety, and authorization rules;
+- live maintenance-management or timetable integrations;
+- a production API, persistence layer, or approval workflow; and
+- dashboard-driven re-optimization for What-if scenarios.
+
+## Outputs and interpretation
+
+The solver writes schedule CSV outputs and the project can produce validation,
+explanation, competition, and risk-weight sensitivity analyses. These outputs
+should be interpreted as reproducible synthetic experiments. They identify
+what the current model chooses under its explicit assumptions, not what should
+be deployed on a real railway corridor.

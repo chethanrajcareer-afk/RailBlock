@@ -1,1 +1,1 @@
-"""Reserved for future scheduling and optimization components."""
+"""CP-SAT scheduling, validation, and analysis components for RailBlock."""

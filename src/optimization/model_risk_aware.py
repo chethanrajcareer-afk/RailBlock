@@ -540,11 +540,11 @@ def build_risk_aware_model(
                 continue
 
             train_entry = pd.Timestamp(
-                train["entry_time"]
+                f"{train['service_date']} {train['entry_time']}"
             )
 
             train_exit = pd.Timestamp(
-                train["exit_time"]
+                f"{train['service_date']} {train['exit_time']}"
             )
 
             if train_exit <= block_window_start:

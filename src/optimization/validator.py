@@ -357,11 +357,11 @@ def validate_schedule(
                 continue
 
             train_start = pd.Timestamp(
-                train["entry_time"]
+                f"{train['service_date']} {train['entry_time']}"
             )
 
             train_end = pd.Timestamp(
-                train["exit_time"]
+                f"{train['service_date']} {train['exit_time']}"
             )
 
             # Intervals overlap when:

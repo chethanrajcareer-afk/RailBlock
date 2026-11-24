@@ -1,1 +1,1 @@
-"""RailBlock Phase 0 data-exploration dashboard."""
+"""RailBlock decision-support dashboard for synthetic planning outputs."""

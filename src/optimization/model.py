@@ -631,11 +631,11 @@ def build_model(data):
                 continue
 
             train_entry = pd.Timestamp(
-                train["entry_time"]
+                f"{train['service_date']} {train['entry_time']}"
             )
 
             train_exit = pd.Timestamp(
-                train["exit_time"]
+                f"{train['service_date']} {train['exit_time']}"
             )
 
             # Train completely before block.

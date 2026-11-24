@@ -1,59 +1,88 @@
 # Architecture
 
-## Current Phase 0 architecture
+## Current implementation: Phase 2.4.7, with a partial Phase 2.5 dashboard
+
+RailBlock is an academic decision-support prototype. It uses deterministic
+synthetic data to demonstrate a complete pipeline from data validation to a
+validated maintenance schedule. It is not connected to live railway systems
+and must not be used to authorize real maintenance work.
 
 ```text
-Synthetic CSV data
+Synthetic CSV inputs
        |
        v
-Data validation
-       |
-       v
-Clean pandas DataFrames
-       |
-       v
-Scheduling / optimization engine (reserved, not implemented)
-       |
-       v
-Schedule evaluation (reserved, not implemented)
+Shared data validation ----------------------------------------+
+       |                                                       |
+       v                                                       v
+Feature / maintenance-history generation                Task and block inputs
+       |                                                       |
+       v                                                       v
+Risk dataset -> Random Forest -> asset-risk scores      Candidate generation
+                       |                                       |
+                       +---------------+-----------------------+
+                                       |
+                                       v
+                         Baseline or risk-aware CP-SAT model
+                                       |
+                                       v
+                         Schedule CSV + validation report
+                                       |
+                                       v
+              Sensitivity, competition, and explanation analyses
+                                       |
+                                       v
+                    Streamlit decision-support dashboard
 ```
 
-`src.data.generate_synthetic_data` creates deterministic fictional inputs. `src.data.validation` owns the data contract: Pydantic row schemas, controlled vocabularies, time checks, and cross-file reference checks. It returns cleaned pandas DataFrames only after validation succeeds.
+### Module responsibilities
 
-The `optimization`, `prediction`, and `api` packages are intentional placeholders. Keeping them separate prevents synthetic-data generation and validation from becoming coupled to later planning, ML, or application concerns.
+- `src/data/` creates the deterministic synthetic inputs, builds asset
+  features and maintenance history, and validates the shared CSV contract.
+- `src/prediction/` builds a risk dataset, trains baseline and Random Forest
+  models, and writes asset-risk scores. These models are demonstrations on
+  synthetic labels, not production forecasts.
+- `src/optimization/` creates feasible task/block candidates, builds baseline
+  and risk-aware OR-Tools CP-SAT models, solves them, validates schedules, and
+  produces analysis outputs.
+- `dashboard/` reads validated synthetic inputs and generated outputs to show
+  corridor, task, block, train, and risk views. Its interactive What-if page
+  is still a placeholder; the dashboard does not run a new optimization model
+  from user-entered changes.
+- `src/api/` remains intentionally reserved; the project has no API service.
 
-## Intended future architecture
+The implemented scheduling model uses optional intervals and binary candidate
+assignment decisions. It enforces at-most-one assignment per task, placement
+inside an eligible block, non-overlap within a block, and train-movement
+separation. The risk-aware model retains those constraints while changing the
+priority score used by the objective.
+
+## Current boundaries
+
+- Inputs, model outputs, and reported results are synthetic and deterministic.
+- Data validation checks the input contract; schedule validation checks the
+  modeled schedule. Neither is a railway safety, dispatching, or authorization
+  system.
+- Department/resource capacity constraints and maintenance-dependency logic
+  are represented in the problem domain but are not yet modeled as CP-SAT
+  constraints.
+- The generated CSV files are experiment outputs, not a persistent planning
+  database or an operational integration.
+
+## Planned direction
 
 ```text
-Maintenance systems: TMS / SMMS / TDMS
-                  |
-                  v
-            Data integration
-                  |
-                  v
-      Maintenance priority engine  <--- Traffic / timetable data
-                  |                           |
-                  +-------------+-------------+
-                                |
-                                v
-                    Optimization engine
-                                |
-                                v
-                  Weekly / monthly block plan
-                                |
-                                v
-                               API
-                                |
-                                v
-               Dashboard / control-room interface
+Validated live data sources
+           |
+           v
+Source-specific contracts, provenance, and access controls
+           |
+           v
+Operationally reviewed prediction and optimization services
+           |
+           v
+Approved planning workflow, API, and dashboard
 ```
 
-This diagram describes a research direction, not an integration commitment. Any introduction of live data must add source-specific contracts, access controls, provenance, privacy/security review, and validation before it can influence a plan.
-
-## Design boundaries
-
-- Data generation remains independent of optimization logic.
-- Validation is shared infrastructure, not business logic embedded in a scheduler.
-- Future prediction/ML code remains in `src/prediction/` and is optional; it must not be presented as a substitute for validated operational constraints.
-- APIs and dashboards consume documented scheduling outputs rather than owning scheduling rules.
-- SQLite or another persistence layer will be considered only once CSV workflows no longer meet the project’s needs.
+This is a research direction, not an integration commitment. Any live-data or
+operational use would require domain review, source-specific validation,
+security and privacy controls, auditability, and explicit safety governance.
