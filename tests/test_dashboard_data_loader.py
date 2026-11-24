@@ -23,5 +23,8 @@ def test_dashboard_loader_uses_existing_validated_synthetic_data() -> None:
 
 
 def test_dashboard_loader_reports_missing_expected_files(tmp_path: Path) -> None:
-    with pytest.raises(DashboardDataError, match="Expected Phase 0 synthetic data is missing"):
+    with pytest.raises(
+        DashboardDataError,
+        match="Expected synthetic source data is missing",
+    ):
         load_dashboard_data(tmp_path)

@@ -26,29 +26,14 @@ if str(PROJECT_ROOT) not in sys.path:
 import pandas as pd
 from ortools.sat.python import cp_model
 
+from src.optimization import model_risk_aware
+from src.optimization.experiment_report import write_experiment_report
 from src.optimization.model_risk_aware import (
     build_risk_aware_model,
     load_asset_risk_scores,
     load_optimization_data,
 )
-
-# ---------------------------------------------------------
-# Make the RailBlock project root importable when this
-# file is executed directly.
-# ---------------------------------------------------------
-
-
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
-import pandas as pd
-from ortools.sat.python import cp_model
-
-from src.optimization.model_risk_aware import (
-    build_risk_aware_model,
-    load_asset_risk_scores,
-    load_optimization_data,
-)
+from src.optimization.validator import validate_schedule
 
 
 # =========================================================
@@ -62,6 +47,10 @@ OUTPUT_FILE = (
     OUTPUT_DIR
     / "risk_aware_schedule.csv"
 )
+REPORT_FILE = OUTPUT_DIR / "risk_aware_experiment_report.json"
+
+MAX_SOLVE_TIME_SECONDS = 30
+NUM_SOLVER_WORKERS = 8
 
 
 # =========================================================
@@ -156,9 +145,9 @@ def solve() -> None:
 
     solver = cp_model.CpSolver()
 
-    solver.parameters.max_time_in_seconds = 30
+    solver.parameters.max_time_in_seconds = MAX_SOLVE_TIME_SECONDS
 
-    solver.parameters.num_workers = 8
+    solver.parameters.num_workers = NUM_SOLVER_WORKERS
 
     status = solver.Solve(model)
 
@@ -183,6 +172,69 @@ def solve() -> None:
             "No feasible risk-aware schedule "
             "was found."
         )
+        empty_schedule = pd.DataFrame(
+            columns=[
+                "task_id",
+                "asset_id",
+                "department",
+                "section_id",
+                "task_type",
+                "criticality",
+                "urgency",
+                "estimated_duration_min",
+                "block_window_id",
+                "block_date",
+                "scheduled_start",
+                "scheduled_end",
+                "predicted_failure_probability",
+            ]
+        )
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        empty_schedule.to_csv(OUTPUT_FILE, index=False)
+
+        write_experiment_report(
+            project_root=PROJECT_ROOT,
+            report_path=REPORT_FILE,
+            input_paths={
+                "maintenance_tasks": (
+                    PROJECT_ROOT / "data" / "synthetic" / "maintenance_tasks.csv"
+                ),
+                "block_availability": (
+                    PROJECT_ROOT / "data" / "synthetic" / "block_availability.csv"
+                ),
+                "train_movements": (
+                    PROJECT_ROOT / "data" / "synthetic" / "train_movements.csv"
+                ),
+                "asset_risk_scores": OUTPUT_DIR / "asset_risk_scores.csv",
+            },
+            source_paths={
+                "solver": Path(__file__),
+                "model": Path(model_risk_aware.__file__),
+                "report": PROJECT_ROOT / "src" / "optimization" / "experiment_report.py",
+                "validator": PROJECT_ROOT / "src" / "optimization" / "validator.py",
+            },
+            tasks=data.tasks,
+            blocks=data.blocks,
+            trains=data.trains,
+            risk_scores=risk_df,
+            schedule=empty_schedule,
+            schedule_path=OUTPUT_FILE,
+            risk_weight=model_risk_aware.RISK_WEIGHT,
+            max_time_seconds=MAX_SOLVE_TIME_SECONDS,
+            num_workers=NUM_SOLVER_WORKERS,
+            solver_status=solver.StatusName(status),
+            objective_value=None,
+            wall_time_seconds=solver.WallTime(),
+            num_conflicts=solver.NumConflicts(),
+            num_branches=solver.NumBranches(),
+            candidate_assignment_count=len(assignment_vars),
+            tasks_with_candidates=len(
+                {task_index for task_index, _ in assignment_vars}
+            ),
+            blocks_used=0,
+            validation=None,
+        )
+        print(f"Experiment report : {REPORT_FILE}")
         return
 
     # ---------------------------------------------------------
@@ -373,6 +425,56 @@ def solve() -> None:
         in block_used_vars.values()
     )
 
+    validation = validate_schedule(
+        data.tasks,
+        data.blocks,
+        data.trains,
+        result,
+    )
+
+    write_experiment_report(
+        project_root=PROJECT_ROOT,
+        report_path=REPORT_FILE,
+        input_paths={
+            "maintenance_tasks": (
+                PROJECT_ROOT / "data" / "synthetic" / "maintenance_tasks.csv"
+            ),
+            "block_availability": (
+                PROJECT_ROOT / "data" / "synthetic" / "block_availability.csv"
+            ),
+            "train_movements": (
+                PROJECT_ROOT / "data" / "synthetic" / "train_movements.csv"
+            ),
+            "asset_risk_scores": OUTPUT_DIR / "asset_risk_scores.csv",
+        },
+        source_paths={
+            "solver": Path(__file__),
+            "model": Path(model_risk_aware.__file__),
+            "report": PROJECT_ROOT / "src" / "optimization" / "experiment_report.py",
+            "validator": PROJECT_ROOT / "src" / "optimization" / "validator.py",
+        },
+        tasks=data.tasks,
+        blocks=data.blocks,
+        trains=data.trains,
+        risk_scores=risk_df,
+        schedule=result,
+        schedule_path=OUTPUT_FILE,
+        risk_weight=model_risk_aware.RISK_WEIGHT,
+        max_time_seconds=MAX_SOLVE_TIME_SECONDS,
+        num_workers=NUM_SOLVER_WORKERS,
+        solver_status=solver.StatusName(status),
+        objective_value=solver.ObjectiveValue(),
+        wall_time_seconds=solver.WallTime(),
+        num_conflicts=solver.NumConflicts(),
+        num_branches=solver.NumBranches(),
+        candidate_assignment_count=len(assignment_vars),
+        tasks_with_candidates=len(
+            {task_index for task_index, _ in assignment_vars}
+        ),
+        blocks_used=used_blocks,
+        validation=validation,
+    )
+
     print()
 
     print(
@@ -491,6 +593,11 @@ def solve() -> None:
     print(
         f"Output            : "
         f"{OUTPUT_FILE}"
+    )
+
+    print(
+        f"Experiment report : "
+        f"{REPORT_FILE}"
     )
 
 

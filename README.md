@@ -608,6 +608,18 @@ pytest -q
 streamlit run dashboard/app.py
 ```
 
+### 7. Generate a risk-aware scheduling experiment report
+
+```bash
+python -m src.optimization.solver_risk_aware
+```
+
+This writes the risk-aware schedule to
+`outputs/risk_aware_schedule.csv` and a reproducibility report to
+`outputs/risk_aware_experiment_report.json`. The report records the input
+file fingerprints, solver settings, search metrics, schedule coverage, and
+independent validation result for that run.
+
 ---
 
 ## 🧪 Reproducibility
